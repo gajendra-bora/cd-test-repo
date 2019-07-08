@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-kenzan
+  namespace: auto
+  labels:
+    app: hello-kenzan
+spec:
+  selector:
+    matchLabels:
+      app: hello-kenzan
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: hello-kenzan
+    spec:
+      containers:
+      - name: hello-kenzan
+        image: devhub-docker.cisco.com/iot-dockersandbox/gbora/rest-hello-world-fanuc:3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+      imagePullSecrets:
+      - name: devhub-docker
