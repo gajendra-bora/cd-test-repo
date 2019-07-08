@@ -1,7 +1,7 @@
 node {
+  checkout scm
   stage('Apply Kubernetes files') {
-    withKubeConfig([credentialsId: 'user1', serverUrl: 'https://api.k8s.my-company.com']) {
-      sh 'kubectl apply -f my-kubernetes-directory/'
+    sh label: '', script: '/usr/local/bin/kubectl --kubeconfig=/tmp/config apply -f helloworld-deployment.yaml'
     }
   }
 }
