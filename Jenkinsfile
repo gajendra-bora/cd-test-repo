@@ -4,6 +4,9 @@ pipeline {
     parameters {
        string defaultValue: 'devhub-docker.cisco.com/iot-dockersandbox/gbora/rest-hello-world-fanuc:3', description: '', name: 'IMAGE_NAME', trim: false
     }
+    environment {
+       PATH = "/usr/local/bin:$PATH"
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
         disableConcurrentBuilds()
