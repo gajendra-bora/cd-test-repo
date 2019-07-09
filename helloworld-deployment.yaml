@@ -18,11 +18,9 @@ spec:
     spec:
       containers:
       - name: hello-kenzan
-        image: devhub-docker.cisco.com/iot-dockersandbox/gbora/rest-hello-world-fanuc:3
-        imagePullPolicy: IfNotPresent
+        image:devhub-docker.cisco.com/iot-dockersandbox/gbora/rest-hello-world-fanuc:3
         ports:
         - containerPort: 8080
           name: http
           protocol: TCP
-      imagePullSecrets:
       - name: devhub-docker
