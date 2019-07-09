@@ -11,7 +11,7 @@ pipeline {
             steps {
                 checkout scm
                 script {
-                    sed -i 's/image\:.*/image:$IMAGE_NAME/g' helloworld-deployment.yaml
+                    sed -i 's/image:.*/image:${IMAGE_NAME}/g' helloworld-deployment.yaml
                 }
             }
         }
