@@ -15,9 +15,7 @@ pipeline {
                 }
             }
         }
-    }
 
-    stages {
         stage ('Deploy image to EKS automation cluster') {
             steps {
                 script {
@@ -26,5 +24,4 @@ pipeline {
             }
         }
     }
-}
 }
