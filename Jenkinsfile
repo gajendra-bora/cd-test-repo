@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage ('Update workspace with latest image') {
             steps {
+                checkout scm
                 script {
                     sed -i 's/image\:.*/image:$IMAGE_NAME/g' helloworld-deployment.yaml
                 }
